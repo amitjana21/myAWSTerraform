@@ -1,0 +1,10 @@
+#environment         = "test"
+region              = "us-east-2"
+#account_env         = "test"
+vpc_id              = "vpc-0259bd00aedd55742"
+subnet_id           = "subnet-022fb4db2989b27a3"
+ec2_key_name        = "myDefaultKeypair"
+security_group_id   = ["sg-0f5eca44422fe28f1"]
+ami_id              = "ami-002068ed284fb165b"
+ec2_insance_size    = "t2.micro"
+#kms_key_id          = ""
