@@ -7,7 +7,7 @@ resource "aws_instance" "server1" {
   subnet_id              = var.subnet_id
   
 
-  disable_api_termination = true
+  #disable_api_termination = true
   #ebs_optimized           = true
 
   root_block_device {
@@ -25,23 +25,23 @@ resource "aws_instance" "server1" {
   }
 }
 
-output "server1" {
-  value = aws_instance.server1.availability_zone
-}
+# output "server1" {
+#   value = aws_instance.server1.availability_zone
+# }
 
-resource "aws_ebs_volume" "volume1" {
-  availability_zone = aws_instance.server1.availability_zone
-  size              = 10
-  tags = {
-    Name = "ebs-for-test-servermount"
-  }
-}
+# resource "aws_ebs_volume" "volume1" {
+#   availability_zone = aws_instance.server1.availability_zone
+#   size              = 10
+#   tags = {
+#     Name = "ebs-for-test-servermount"
+#   }
+# }
 
-resource "aws_volume_attachment" "volume_attachment" {
-  device_name = "/dev/xvdh"
-  instance_id = aws_instance.server1.id
-  volume_id   = aws_ebs_volume.volume1.id
-}
+# resource "aws_volume_attachment" "volume_attachment" {
+#   device_name = "/dev/xvdh"
+#   instance_id = aws_instance.server1.id
+#   volume_id   = aws_ebs_volume.volume1.id
+# }
 
 # resource "aws_ebs_volume" "ebs-volume-1" {
 #   availability_zone = "us-east-2a"
@@ -55,8 +55,8 @@ resource "aws_volume_attachment" "volume_attachment" {
 #   instance_id = "aws_instance.server1.id"
 # }
 
-resource "aws_eip_association" "eip_assoc" {
-  instance_id   = aws_instance.server1.id
-  allocation_id = "eipalloc-0ff89f369632c2002"
-  #public_ip = "3.135.75.62"
-}
+# resource "aws_eip_association" "eip_assoc" {
+#   instance_id   = aws_instance.server1.id
+#   allocation_id = "eipalloc-0ff89f369632c2002"
+#   #public_ip = "3.135.75.62"
+# }
